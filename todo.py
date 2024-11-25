@@ -1,6 +1,6 @@
 #1번 함수
 def add_task(task_name):
-    todo_list=list(task_name)
+    todo_list=list[task_name]
     print(f"할 일 목록에 '{todo_list}'가 추가되었습니다!")
     
     pass
