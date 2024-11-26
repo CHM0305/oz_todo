@@ -1,9 +1,25 @@
+import json
+import os #파이썬을 이용해 시스템 내부에 접근이 가능하다.
+
+
+task_file ='tasks.json'
+
+def load_task(): #파일을 불러오기때문에 매개변수는 필요 없음
+    if os.path.exists(task_file):
+        with open(task_file,'r',encoding='utf-8')as file:
+            return json.load(file)
+    return [] #아무것도 없으니 리스트를 그냥 만들어버리자/
+
+def save_task(tasks): #add_task를 통해 전달받은 해야할 일을 파일에 저장하는 기능
+    with open(task_file,'w',encoding='utf-8')as file: #file => open(TASK_FILE)
+        json.dump(tasks,file,indent=4,ensure_ascii=False)
+
 #1번 함수
 def add_task(task_name):
-    todo_list=list[task_name]
-    print(f"할 일 목록에 '{todo_list}'가 추가되었습니다!")
-    
-    pass
+    tasks = load_task()
+    task={'name':task_name,"completed":False}
+    tasks.append(task)
+    save_task(tasks)
 
 #2번 함수
 def view_task():
