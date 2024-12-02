@@ -36,8 +36,14 @@ def view_task():
             
 #3번 함수
 def complete_task(task_number):
-    pass
+    tasks=load_task() #tasks=[{---}]
+    if 1<= task_number <=len(tasks): #무조건 1번부터 값을 받아야 함.
+        tasks[task_number-1]["completed"] = True  #로직이라 말한다. 강제로 값을 할당해준다.
+        save_task(tasks)
+        print(f"할 일 : {tasks[task_number-1]['name']} 이(가) 완료 처리되었습니다.")
 
+    else: #잘못된 값 알려주는 곳
+        print("유효하지 않는 번호입니다. 다시 확인 후 입력해주세요.")
 #4번 함수
 def delete_task(task_number):
     pass
