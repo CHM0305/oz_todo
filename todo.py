@@ -21,11 +21,19 @@ def add_task(task_name):
     tasks.append(task)
     save_task(tasks)
 
-#2번 함수
+#2번 함수- 할 일 목록보기
 def view_task():
-    
-    pass
-
+    tasks = load_task() #파일이 있는 경우 안에 내용물이 tasks에 들어가고 없으면 빈 리스트가 들어감
+    if not tasks: #tasks는 if문을 만나면 결과는? 
+        print("현재 등록된 작업이 없습니다.")
+    else:
+        print("작업 목록 : ")
+        for i, task in enumerate(tasks, start=1): #리스트 안에 리스트또는 딕셔너리
+        #enumerate() 내장 함수/ 자동으로 숫자를 증가시켜줌으로써 데이터 값도 넣어줌 가장 앞 변수 ->i=1,task={name:"파이썬 공부하기"---} 
+            status ="완료" if task['completed'] else "미완료" #type은 딕셔너리! key 입력 시-> valus 반환해준다.
+            print(f"{i}.{task['name']}-{status}") # -> 1. 파이썬 공부하기 - 미완료.
+        #if 문이 거짓일 경우 미완료, 참일 경우 완료를 
+            
 #3번 함수
 def complete_task(task_number):
 
