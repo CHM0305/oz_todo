@@ -36,7 +36,6 @@ def view_task():
             
 #3번 함수
 def complete_task(task_number):
-
     pass
 
 #4번 함수
