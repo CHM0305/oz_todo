@@ -45,9 +45,14 @@ def complete_task(task_number):
     else: #잘못된 값 알려주는 곳
         print("유효하지 않는 번호입니다. 다시 확인 후 입력해주세요.")
 #4번 함수
-def delete_task(task_number):
-    pass
-
+def delete_task(task_number):# 함수명: 목적성을 넣어야 함. 그래야 목적에 맞는 기능들이 포함되어있다.
+    tasks = load_task()
+    if 1<=task_number<=len(tasks):
+        delete_tsk =tasks.pop(task_number-1)#,pop 항목 삭제후 반환(return) /
+        save_task(tasks)
+        print(f"할 일: '{delete_tsk['name']}'이(가) 삭제 되었습니다.")
+    else:
+        print("유효하지 않은 작업 번호입니다. 다시 확인해주세요.")
 
 #기능의 메뉴 함수
 def show_menu():
